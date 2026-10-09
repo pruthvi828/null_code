@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>null code — By Pruthvi | Free GPT Astra</title>
+  <meta name="description" content="null code — By Pruthvi (@null_code._). Clean & minimal guide to unlock GPT Astra for free." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #000000;
+      --card-bg: rgba(18, 18, 22, 0.65);
+      --card-border: rgba(255, 255, 255, 0.1);
+      --card-hover-border: rgba(255, 255, 255, 0.28);
+      --text-main: #ffffff;
+      --text-muted: #8e8e98;
+      --text-dim: #5a5a64;
+      --omni-purple: #6366f1;
+      --omni-lime: #d4f738;
+    }
+
+    html, body {
+      height: 100%;
+      background: var(--bg);
+      color: var(--text-main);
+      font-family: 'Space Grotesk', sans-serif;
+      overflow-x: hidden;
+      selection-background-color: #ffffff;
+      selection-color: #000000;
+    }
+    ::selection { background: #fff; color: #000; }
+
+    /* CUSTOM CURSOR */
+    @media (pointer: fine) {
+      body { cursor: none; }
+      #cursor-dot {
+        position: fixed; width: 6px; height: 6px; background: #fff; border-radius: 50%;
+        pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); mix-blend-mode: difference;
+      }
+      #cursor-ring {
+        position: fixed; width: 36px; height: 36px; border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 50%;
+        pointer-events: none; z-index: 9998; transform: translate(-50%, -50%);
+        transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+        mix-blend-mode: difference;
+      }
+    }
+    @media (pointer: coarse) {
+      #cursor-dot, #cursor-ring { display: none; }
+    }
+
+    /* SUBTLE BACKGROUND CANVAS */
+    #bg-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .ambient-glow {
+      position: fixed;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      filter: blur(160px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.04;
+      background: radial-gradient(circle, #ffffff 0%, transparent 70%);
+      top: -150px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .page-layout {
+      position: relative;
+      z-index: 2;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* NAVBAR */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 28px 48px;
+      animation: fadeIn 0.8s ease both;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .brand-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid var(--card-border);
+      background: rgba(255, 255, 255, 0.04);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .brand-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: #fff;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-btn-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 100px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
+      color: #fff;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+    .nav-btn-link svg { width: 14px; height: 14px; fill: currentColor; }
+    .nav-btn-link:hover {
+      background: #fff;
+      color: #000;
+      border-color: #fff;
+      transform: translateY(-1px);
+    }
+
+    /* HERO */
+    .hero {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 24px;
+    }
+
+    /* SLEEK CIRCLE LOGO INSIGNIA */
+    .logo-insignia {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      margin-bottom: 32px;
+      animation: fadeIn 0.8s 0.2s ease both;
+    }
+    .logo-circle {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      background: radial-gradient(circle at 35% 30%, #16161a 0%, #000000 80%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.8), inset 0 0 25px rgba(255, 255, 255, 0.04);
+    }
+    .logo-circle svg {
+      width: 105px;
+      height: auto;
+    }
+    .logo-conic {
+      position: absolute;
+      inset: -2px;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, transparent 0%, rgba(255,255,255,0.6) 20%, transparent 40%);
+      animation: spin 6s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .hero-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(42px, 7.5vw, 84px);
+      font-weight: 800;
+      line-height: 0.95;
+      letter-spacing: -2.5px;
+      margin-bottom: 14px;
+      background: linear-gradient(180deg, #ffffff 40%, #888894 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeIn 0.8s 0.3s ease both;
+    }
+
+    .hero-author {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      animation: fadeIn 0.8s 0.4s ease both;
+    }
+    .hero-author strong { color: #fff; font-weight: 600; }
+
+    .hero-tagline {
+      font-size: clamp(15px, 2vw, 17px);
+      font-weight: 300;
+      color: var(--text-muted);
+      max-width: 440px;
+      line-height: 1.6;
+      margin-bottom: 44px;
+      animation: fadeIn 0.8s 0.5s ease both;
+    }
+
+    /* MAIN CTA BUTTON */
+    .btn-guide-trigger {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 42px;
+      border-radius: 100px;
+      background: #ffffff;
+      color: #000000;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 0 35px rgba(255, 255, 255, 0.2);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      animation: fadeIn 0.8s 0.6s ease both;
+    }
+    .btn-guide-trigger:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 15px 50px rgba(255, 255, 255, 0.4);
+    }
+    .btn-arrow-bubble {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #000000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .btn-arrow-bubble svg { width: 10px; height: 10px; fill: #ffffff; }
+
+    /* FOOTER */
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 28px 48px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 12px;
+      color: var(--text-dim);
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-copy strong { color: var(--text-muted); }
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .footer-links a:hover { color: #fff; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* FULL-SCREEN GLASS GUIDE MODAL */
+    .guide-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      overflow-y: auto;
+      padding: 60px 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .guide-modal.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .modal-content-wrap {
+      max-width: 820px;
+      width: 100%;
+      position: relative;
+      transform: translateY(30px) scale(0.98);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      margin: auto 0;
+    }
+    .guide-modal.active .modal-content-wrap {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--card-border);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.25s ease;
+      z-index: 10;
+    }
+    .modal-close-btn:hover {
+      background: #fff;
+      color: #000;
+      transform: rotate(90deg);
+    }
+
+    .modal-header {
+      text-align: center;
+      margin-bottom: 44px;
+      padding-right: 48px;
+    }
+    .modal-pill {
+      display: inline-block;
+      padding: 5px 14px;
+      border-radius: 100px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .modal-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(30px, 4.5vw, 44px);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      margin-bottom: 10px;
+    }
+    .modal-subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    /* STEP CARDS IN MODAL */
+    .modal-steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .modal-step-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 32px;
+      backdrop-filter: blur(20px);
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+    .modal-step-card:hover {
+      border-color: var(--card-hover-border);
+      transform: translateY(-2px);
+    }
+
+    .step-card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .step-num-pill {
+      font-size: 11px;
+      font-weight: 700;
+      color: #000;
+      background: #fff;
+      padding: 4px 10px;
+      border-radius: 100px;
+    }
+    .step-card-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .step-card-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .step-card-desc strong { color: #fff; }
+
+    /* PRIVACY BLURRED INFO BADGE */
+    .blur-data {
+      display: inline-block;
+      filter: blur(5px);
+      user-select: none;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 4px;
+      padding: 1px 8px;
+      color: #fff;
+      transition: filter 0.3s ease;
+    }
+    .blur-data:hover {
+      filter: blur(3px);
+    }
+
+    /* MOCKUP PREVIEW SCREENSHOTS */
+    
+    /* SS 1: OMNIRUSH HERO PREVIEW */
+    .ss-preview-omnirush {
+      background: #09090c;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    .ss-top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+    }
+    .ss-logo-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .ss-logo-icon {
+      width: 18px; height: 18px; border-radius: 50%;
+      background: conic-gradient(#6366f1, #d4f738, #6366f1);
+    }
+    .ss-hero-headline {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(20px, 3vw, 28px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      color: #ffffff;
+      margin-bottom: 12px;
+    }
+    .ss-hero-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: #94949e;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+    .ss-buttons-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .ss-btn-primary {
+      background: var(--omni-lime);
+      color: #000;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 9px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .ss-btn-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 9px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* SS 2: ACCESS REQUEST & GITHUB LINK PREVIEW (SANITIZED / BLURRED) */
+    .ss-preview-request {
+      background: #09090c;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+    .ss-review-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+    .ss-clock-icon {
+      width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--omni-lime);
+      display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--omni-lime);
+    }
+    .ss-review-sub {
+      font-size: 12.5px;
+      color: #94949e;
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+    .ss-form-details {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 8px;
+      font-size: 12px;
+      color: #888894;
+      margin-bottom: 16px;
+      padding: 12px;
+      background: rgba(255,255,255,0.02);
+      border-radius: 8px;
+    }
+    .ss-form-details span:nth-child(even) {
+      color: #fff;
+    }
+    .ss-waitlist-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 16px;
+    }
+    .ss-waitlist-title {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .ss-waitlist-text {
+      font-size: 11.5px;
+      color: #888894;
+      margin-bottom: 12px;
+    }
+    .ss-github-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .ss-btn-github {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      padding: 7px 14px;
+      border-radius: 8px;
+      font-size: 11.5px;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+    }
+    .ss-btn-github svg { width: 14px; height: 14px; fill: currentColor; }
+
+    /* ACTION LINK BUTTON */
+    .step-direct-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: 100px;
+      background: #ffffff;
+      color: #000000;
+      font-size: 12.5px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+    .step-direct-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(255, 255, 255, 0.3);
+    }
+
+    /* STEP 5 SUCCESS BOX */
+    .step-success-box {
+      background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.08) 0%, rgba(14, 14, 18, 0.9) 80%);
+      border: 1px solid var(--card-hover-border);
+      border-radius: 24px;
+      padding: 36px;
+      text-align: center;
+    }
+    .success-badge {
+      display: inline-block;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #ffffff;
+      color: #000000;
+      line-height: 44px;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .success-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .success-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 20px 24px; }
+      .guide-modal { padding: 40px 16px; }
+      .modal-step-card { padding: 24px 18px; }
+      footer { padding: 20px 24px; flex-direction: column; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BACKGROUND CANVAS & AMBIENT GLOW -->
+  <canvas id="bg-canvas"></canvas>
+  <div class="ambient-glow"></div>
+
+  <!-- CURSORS -->
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- FULLSCREEN GLASS GUIDE MODAL (OPENS ONLY ON CLICK) -->
+  <div class="guide-modal" id="guideModal">
+    <div class="modal-content-wrap">
+      <button class="modal-close-btn" onclick="toggleGuideModal(false)" aria-label="Close guide">&#x2715;</button>
+
+      <div class="modal-header">
+        <span class="modal-pill">VERIFIED 5-STEP BLUEPRINT</span>
+        <h2 class="modal-title">GPT Astra &mdash; Free Unlock</h2>
+        <p class="modal-subtitle">Curated by <strong>Pruthvi</strong> &bull; Follow on Instagram <a href="https://instagram.com/null_code._" target="_blank" style="color:#fff; text-decoration:underline;">@null_code._</a></p>
+      </div>
+
+      <div class="modal-steps-list">
+
+        <!-- STEP 1 -->
+        <div class="modal-step-card">
+          <div class="step-card-header">
+            <span class="step-num-pill">01</span>
+            <span class="step-card-title">Go to OmniRush.ai &amp; Sign Up</span>
+          </div>
+          <p class="step-card-desc">
+            Visit <strong>https://omnirush.ai/</strong> and click <strong>"Get started &rarr;"</strong> to register your account.
+          </p>
+
+          <!-- SCREENSHOT 1 PREVIEW MOCKUP -->
+          <div class="ss-preview-omnirush">
+            <div class="ss-top-bar">
+              <div class="ss-logo-title">
+                <div class="ss-logo-icon"></div>
+                <span>omnirush</span>
+              </div>
+              <span style="font-size:12px; color:#888;">Apps</span>
+            </div>
+            <div class="ss-hero-headline">State-of-the-art<br/>models. Free, for<br/>every profession.</div>
+            <div class="ss-hero-sub">Let agents work through your files in the desktop app or your terminal. The strongest models from the frontier labs, with no card and no trial.</div>
+            <div class="ss-buttons-row">
+              <a href="https://omnirush.ai/" target="_blank" class="ss-btn-primary">Get started &rarr;</a>
+              <a href="https://omnirush.ai/download/windows" target="_blank" class="ss-btn-secondary">Download &rarr;</a>
+            </div>
+          </div>
+
+          <a href="https://omnirush.ai/" target="_blank" class="step-direct-link">
+            <span>Open omnirush.ai &rarr;</span>
+          </a>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="modal-step-card">
+          <div class="step-card-header">
+            <span class="step-num-pill">02</span>
+            <span class="step-card-title">Fill Details &amp; Link GitHub (Daily Bonus Tokens)</span>
+          </div>
+          <p class="step-card-desc">
+            Fill in your access request details and <strong>link your GitHub account</strong>. Star the repository to jump up the waitlist queue and get bonus daily tokens.
+          </p>
+
+          <!-- SCREENSHOT 2 PREVIEW MOCKUP (WITH PERSONAL INFO BLURRED) -->
+          <div class="ss-preview-request">
+            <div class="ss-review-header">
+              <div class="ss-clock-icon">&#x25F7;</div>
+              <span>Your request is in review</span>
+            </div>
+            <div class="ss-review-sub">
+              Thanks. We'll review your request sent from <span class="blur-data">user_email@domain.com</span> and you'll hear from us soon.
+            </div>
+
+            <div class="ss-form-details">
+              <span>Name</span>
+              <span><span class="blur-data">User Name</span></span>
+              <span>Field</span>
+              <span>Education and teaching</span>
+              <span>What you do</span>
+              <span>Digital automation &amp; tools</span>
+              <span>Discord</span>
+              <span>Linked</span>
+            </div>
+            
+            <div class="ss-waitlist-box">
+              <div class="ss-waitlist-title">&#x2606; Move up the waitlist</div>
+              <div class="ss-waitlist-text">Star <strong>github.com/omnirush-ai/omnirush-gui</strong> and link your GitHub account. Starred accounts are reviewed first.</div>
+              <div class="ss-github-actions">
+                <a href="https://omnirush.ai/" target="_blank" class="ss-btn-github">
+                  <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+                  <span>Star on GitHub</span>
+                </a>
+                <a href="https://omnirush.ai/" target="_blank" class="ss-btn-github">
+                  <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+                  <span>Link GitHub</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <a href="https://omnirush.ai/" target="_blank" class="step-direct-link">
+            <span>Link Account &rarr;</span>
+          </a>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="modal-step-card">
+          <div class="step-card-header">
+            <span class="step-num-pill">03</span>
+            <span class="step-card-title">Download OmniRush for Windows</span>
+          </div>
+          <p class="step-card-desc">
+            Download the official desktop application directly from <strong>https://omnirush.ai/download/windows</strong> and run the installer.
+          </p>
+          <a href="https://omnirush.ai/download/windows" target="_blank" class="step-direct-link">
+            <span>Download for Windows (.exe) &darr;</span>
+          </a>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="modal-step-card">
+          <div class="step-card-header">
+            <span class="step-num-pill">04</span>
+            <span class="step-card-title">Sign In &amp; Link Discord / GitHub</span>
+          </div>
+          <p class="step-card-desc">
+            Launch the OmniRush desktop client on your PC, sign in with the <strong>same email ID</strong>, and connect your Discord &amp; GitHub profiles in app settings.
+          </p>
+        </div>
+
+        <!-- STEP 5 -->
+        <div class="step-success-box">
+          <div class="success-badge">&#x2713;</div>
+          <h3 class="success-title">Step 05 &mdash; Tada! Your Astra is Unlocked!</h3>
+          <p class="success-desc">
+            You now have unlimited free access to the GPT Astra multimodal models with zero paywalls.
+          </p>
+          <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
+            <a href="https://instagram.com/null_code._" target="_blank" class="step-direct-link">
+              <span>Follow @null_code._ on Instagram</span>
+            </a>
+            <a href="https://github.com/pruthvi828/null_code" target="_blank" class="step-direct-link" style="background:rgba(255,255,255,0.08); color:#fff; border:1px solid rgba(255,255,255,0.2);">
+              <span>GitHub Repo</span>
+            </a>
+            <button onclick="shareWebsite()" class="step-direct-link" style="background:rgba(255,255,255,0.08); color:#fff; border:1px solid rgba(255,255,255,0.2); cursor:pointer;">
+              <span>Share Guide</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- CLEAN & MINIMAL MAIN PAGE -->
+  <div class="page-layout">
+
+    <!-- NAVBAR -->
+    <nav>
+      <a href="#" class="nav-brand">
+        <div class="brand-icon">&lt;/&gt;</div>
+        <span class="brand-name">null code</span>
+      </a>
+
+      <div class="nav-actions">
+        <a href="https://github.com/pruthvi828/null_code" target="_blank" class="nav-btn-link" title="GitHub Repository">
+          <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          <span>GitHub</span>
+        </a>
+
+        <a href="https://instagram.com/null_code._" target="_blank" class="nav-btn-link" title="Instagram Profile">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          <span>@null_code._</span>
+        </a>
+      </div>
+    </nav>
+
+    <!-- MINIMAL HERO -->
+    <main class="hero">
+
+      <!-- SLEEK CIRCLE LOGO -->
+      <div class="logo-insignia">
+        <div class="logo-conic"></div>
+        <div class="logo-circle">
+          <svg viewBox="0 0 200 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M28 40L42 26M28 40L42 54" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M54 54V34C54 29 58 26 64 26C70 26 74 29 74 34V54" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>
+            <path d="M86 26V46C86 51 90 54 96 54C102 54 106 51 106 46V26" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>
+            <path d="M120 18V54" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>
+            <path d="M136 12V54" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>
+            <path d="M172 40L158 26M172 40L158 54" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+
+      <h1 class="hero-title">null code</h1>
+      <div class="hero-author">By <strong>Pruthvi</strong> &bull; @null_code._</div>
+      
+      <p class="hero-tagline">
+        Unlock GPT Astra for free. Clean step-by-step methods and elite tech guides.
+      </p>
+
+      <!-- CENTRAL GUIDE BUTTON -->
+      <button class="btn-guide-trigger" onclick="toggleGuideModal(true)">
+        <div class="btn-arrow-bubble">
+          <svg viewBox="0 0 10 10"><path d="M3 2l4 3-4 3V2z"/></svg>
+        </div>
+        <span>Guide for GPT Astra Free</span>
+      </button>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-copy">&copy; 2026 <strong>null code</strong> &bull; By Pruthvi</div>
+      <div class="footer-links">
+        <a href="https://github.com/pruthvi828/null_code" target="_blank">GitHub Repository</a>
+        <a href="https://instagram.com/null_code._" target="_blank">Instagram: @null_code._</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    /* ── CURSOR ── */
+    const dot = document.getElementById('cursor-dot');
+    const ring = document.getElementById('cursor-ring');
+    let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+
+    if (dot && ring) {
+      document.addEventListener('mousemove', e => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        dot.style.left = mouseX + 'px';
+        dot.style.top = mouseY + 'px';
+      });
+
+      function renderCursor() {
+        ringX += (mouseX - ringX) * 0.14;
+        ringY += (mouseY - ringY) * 0.14;
+        ring.style.left = ringX + 'px';
+        ring.style.top = ringY + 'px';
+        requestAnimationFrame(renderCursor);
+      }
+      renderCursor();
+
+      document.querySelectorAll('a, button, .modal-step-card').forEach(elem => {
+        elem.addEventListener('mouseenter', () => {
+          ring.style.width = '52px';
+          ring.style.height = '52px';
+          ring.style.borderColor = '#ffffff';
+          ring.style.background = 'rgba(255,255,255,0.06)';
+        });
+        elem.addEventListener('mouseleave', () => {
+          ring.style.width = '36px';
+          ring.style.height = '36px';
+          ring.style.borderColor = 'rgba(255,255,255,0.4)';
+          ring.style.background = 'transparent';
+        });
+      });
+    }
+
+    /* ── SUBTLE CANVAS PARTICLES ── */
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d');
+    let width, height, particles = [];
+
+    function setupCanvas() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', setupCanvas);
+    setupCanvas();
+
+    class Particle {
+      constructor() { this.init(); }
+      init() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.radius = Math.random() * 1.2 + 0.3;
+        this.vx = (Math.random() - 0.5) * 0.15;
+        this.vy = (Math.random() - 0.5) * 0.15;
+        this.alpha = Math.random() * 0.3 + 0.05;
+      }
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.x < 0 || this.x > width || this.y < 0 || this.y > height) this.init();
+      }
+      render() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < 70; i++) particles.push(new Particle());
+
+    function renderCanvas() {
+      ctx.clearRect(0, 0, width, height);
+      particles.forEach(p => { p.update(); p.render(); });
+      requestAnimationFrame(renderCanvas);
+    }
+    renderCanvas();
+
+    /* ── GUIDE MODAL CONTROLS ── */
+    function toggleGuideModal(open) {
+      const modal = document.getElementById('guideModal');
+      if (open) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      } else {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+    document.getElementById('guideModal').addEventListener('click', function(e) {
+      if (e.target === this) toggleGuideModal(false);
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') toggleGuideModal(false);
+    });
+
+    /* ── SHARE HANDLER ── */
+    function shareWebsite() {
+      if (navigator.share) {
+        navigator.share({
+          title: 'null code — GPT Astra Free Guide by Pruthvi',
+          text: '5 Steps to unlock GPT Astra for free on null code (@null_code._)!',
+          url: window.location.href
+        });
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert('Link copied to clipboard!');
+      }
+    }
+  </script>
+</body>
+</html>
